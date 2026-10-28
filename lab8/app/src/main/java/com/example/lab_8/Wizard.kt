@@ -27,5 +27,10 @@ class Wizard(val name: String, var mana: Int, var spellPower: Int) {
     }
 
     // train method not implemented in this example
-    fun train() {}
+    fun train() {
+        if (mana >= 5) {
+            mana -= 5
+            spellPower++
+        }
+    }
 }
