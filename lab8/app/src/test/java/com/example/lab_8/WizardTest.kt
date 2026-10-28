@@ -46,4 +46,28 @@ class WizardTest {
 
         assertEquals(70, evilWizard.mana)
     }
+
+    // writing tests for train method
+    // Test 1: test should test if we have enough mana
+    @Test
+    fun train_manaEnough_manaDecreasesCorrectly_spellPowerIncreasesCorrectly() {
+        // Before training, Evil Wizard has 30 mana and spellPower of 10
+        // call the train method
+        evilWizard.train()
+        // After training, mana decreases by 5 and spellPower increases by 1
+        assertEquals(25, evilWizard.mana)
+        assertEquals(11, evilWizard.spellPower)
+    }
+
+    // Test 2: test should test if we don't have enough mana
+    @Test
+    fun train_manaNotEnough_manaNotChanged_spellPowerNotChanged() {
+        // Set mana to less than 5 (not enough mana)
+        evilWizard.mana = 3
+        // call the train method
+        evilWizard.train()
+        // After training, mana and spellPower should not change
+        assertEquals(3, evilWizard.mana)
+        assertEquals(10, evilWizard.spellPower)
+    }
 }
